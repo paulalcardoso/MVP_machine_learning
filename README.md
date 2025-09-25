@@ -9,7 +9,7 @@ Um dos dificultadores foi trabalhar com datasets diferentes do Kaggle. De um lad
 
 No fim, utilizei dois conjuntos de dados principais:
 
-full_data.csv – contém as informações de todas as nomeações ao Oscar, em todas as categorias. Suas colunas são:
+**full_data.csv** – contém as informações de todas as nomeações ao Oscar, em todas as categorias. Suas colunas são:
 **Ceremony** → Número da cerimônia.
 **Year** → Ano da premiação.
 **Class** → Grande categoria da premiação.
@@ -27,7 +27,7 @@ full_data.csv – contém as informações de todas as nomeações ao Oscar, em 
 **Citation** → Citação associada, se houver.
 **MultifilmNomination** → Indica se a nomeação está associada a mais de um filme.
 
-cleaned_data_from_1920_to_2025.csv – Informações tratadas de bilheteria. Suas colunas são:
+**cleaned_data_from_1920_to_2025.csv** – Informações tratadas de bilheteria. Suas colunas são:
 **id** → Identificador IMDb do filme.
 **title** → Título do filme.
 **duration** → Duração.
