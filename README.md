@@ -74,7 +74,7 @@ Além disso, apliquei uma série de **transformações de dados**:
 - **Criar** coluna com a quantidade de indicações do filme em outras categorias.  
 - **Normalizar** variáveis numéricas, gerando versões escaladas para comparação.  
 
-Para avaliar o impacto dessas transformações, criei **quatro pipelines de pré-processamento**:  
+Além disso, tomei cuidado para **evitar vazamento de dados** (por exemplo, aplicando transformações somente após a separação em treino e teste) e garanti a criação de **quatro pipelines de pré-processamento reproduzíveis** para avaliar o impacto das transformações acima:  
 1. sem normalização e sem feature selection;  
 2. sem normalização e com feature selection;  
 3. com normalização e sem feature selection;  
@@ -133,4 +133,4 @@ Também testei um **ensemble heterogêneo (Voting Classifier)** combinando o XGB
 - **Modelos**: testar métodos mais avançados de balanceamento de classes (ex.: SMOTE, ajustes adicionais em *class weights*).  
 - **Tuning**: experimentar *Bayesian Optimization* ou outros métodos mais eficientes de busca para otimização dos hiperparâmetros, reduzindo o custo de tempo de treinamento.
 
-#### PS: vide notebook para checklist sugerido no template!
+#### PS: vide notebook para checklist sugerido no template e mais detalhes do MVP!
