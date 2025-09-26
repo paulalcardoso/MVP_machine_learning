@@ -51,3 +51,33 @@ No fim, utilizei dois conjuntos de dados principais:
 **awards_content** → Resumo de prêmios e indicações.
 **genres** → Gêneros.
 **languages** → Idiomas.
+
+Antes de separar os dados para treino e teste, precisei realizar diversos ajustes, como corrigir o ano de lançamento e normalizar o título dos filmes. Utilizei uma chave composta de título-ano de lançamento para unir os datasets e defini uma regra de tolerância de até 3 anos (baseada em estatísticas) para aumentar a quantidade de filmes corretamente combinados. Após a junção, tratei linhas duplicadas mantendo apenas a linha mais completa (com menos valores nulos) e utilizei uma técnica de fuzzy matching para identificar pares de títulos que ainda não haviam sido associados. Com esse processo, consegui identificar 608 dos 611 filmes indicados. 
+
+Uma vez com o dataset unificado, reduzi a sua dimensão eliminando variáveis irrelevantes para a predição, como links para páginas do IMDb, ficando com 9 atributos a serem usados na predição. Este MVP é um problema de classificação binária, em que a variável target é a coluna Winner, oriunda do dataset dos filmes indicados, com valor True para os vencedores e nulo para os demais indicados.
+
+Na sequência, dividi os dados em treino (80%) e teste (20%) de forma estratificada, garantindo que a proporção entre as classes fosse preservada. Inicialmente identifiquei que faria sentido utilizar validação cruzada estratificada (k=5), já que o dataset é desbalanceado, mas só apliquei essa técnica mais adiante, no modelo selecionado como candidato final.
+
+Além disso, apliquei uma série de transformações de dados para tornar o conjunto mais consistente, informativo e pré-processado para o treinamento e teste:
+
+- Converti colunas financeiras que estavam em formato object, convertendo-as para valores numéricos (float), e desconsiderei valores que não são em dólar.
+
+- Criei colunas auxiliares (_missing) para sinalizar valores ausentes antes de tratá-los, de forma a não perder e confundir informação.
+
+- Apliquei One-Hot Encoding para transformar variáveis categóricas, como países e gêneros, em variáveis numéricas.
+
+- Criei uma coluna com a quantidade de indicações do filme, como um possível indicador de relevância na premiação.
+
+- Testei a normalização das variáveis numéricas, gerando versões escaladas para que atributos em diferentes ordens de grandeza não dominassem o aprendizado.
+
+Para avaliar o impacto dessas transformações, criei diferentes visões do dataset em 4 pipelines de pré-processamento: 
+
+1. sem normalização e sem feature selection;
+   
+2. sem normalização e com feature selection;
+   
+3. com normalização e sem feature selection;
+   
+4. com normalização e com feature selection.
+
+Esse processo me permitiu analisar como cada transformação influenciava os resultados e chegar a um conjunto enxuto e consistente de atributos para alimentar os modelos.
