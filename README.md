@@ -131,4 +131,6 @@ Também testei um **ensemble heterogêneo (Voting Classifier)** combinando o XGB
 ### Próximos passos  
 - **Dados**: incorporar mais atributos dos filmes (ex.: indicações em outras categorias do Oscar, bilheteria detalhada) para enriquecer a base. Também considerar prever vencedores como um todo das premiações ao Oscar, e não só de *Best Picture*.  
 - **Modelos**: testar métodos mais avançados de balanceamento de classes (ex.: SMOTE, ajustes adicionais em *class weights*).  
-- **Tuning**: experimentar *Bayesian Optimization* ou outros métodos mais eficientes de busca para otimização dos hiperparâmetros, reduzindo o custo de tempo de treinamento.  
+- **Tuning**: experimentar *Bayesian Optimization* ou outros métodos mais eficientes de busca para otimização dos hiperparâmetros, reduzindo o custo de tempo de treinamento.
+
+#### PS: vide notebook para checklist sugerido no template!
